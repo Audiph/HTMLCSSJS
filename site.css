@@ -69,6 +69,10 @@ article {
   width: 75%;
 }
 
+.columns {
+  display: flex;
+}
+
 @media only screen and (min-width: 768px) {
   main {
     display: flex;
@@ -77,4 +81,44 @@ article {
   aside {
     margin-left: 2%;
   }
+
+  .columns-desktop {
+    display: flex;
+  }
+}
+
+.music {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(164, 198, 250);
+  border: solid 1px #ccc;
+}
+
+.music img {
+  width: 100%;
+}
+
+.music .title {
+  font-weight: bold;
+}
+
+.music .columns {
+  width: 100%;
+}
+
+.music .price {
+  text-align: right;
+}
+
+.music .columns div {
+  width: 50%;
+}
+
+.music button {
+  background-color: #f6aeae;
+  padding: 10px;
+  border: solid 1px #f6aeae;
+  border-radius: 3px;
+  color: #fff;
 }
