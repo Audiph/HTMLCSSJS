@@ -73,7 +73,8 @@
         </div>
         <p class="desc"></p>
       </div>
-      <form action="" method="POST">
+      <form action="http://localhost:7071/api/post" method="POST">
+        <input type="hidden" id="music-order" name="music-order">
         <div class="input-group">
           <div><label for="first-name">First Name</label></div>
           <div><input type="text" name="first-name" id="first-name"></div>
@@ -141,6 +142,10 @@
     
     if (order) {
       const musicOrder = JSON.parse(order);
+
+      const orderInput = document.querySelector('#music-order');
+      orderInput.value = order;
+
       const music = document.querySelector('.music');
 
       const title = music.querySelector('.title');
