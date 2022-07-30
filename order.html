@@ -75,6 +75,7 @@
       </div>
       <form action="http://localhost:7071/api/post" method="POST">
         <input type="hidden" id="music-order" name="music-order">
+        <input type="hidden" id="location" name="location">
         <div class="input-group">
           <div><label for="first-name">First Name</label></div>
           <div><input type="text" name="first-name" id="first-name"></div>
@@ -138,6 +139,27 @@
 </body>
 <script>
   window.addEventListener('DOMContentLoaded', function(e) {
+
+    let locationBox = document.querySelector('#location');
+
+    let location = {
+      latitude: 'unknown',
+      longtitude: 'unknown'
+    };
+
+    window.navigator.geolocation.getCurrentPosition(
+      function(position) {
+        localtion = {
+          latitude: position.coords.latitude,
+          longtitude: position.coords.longitude
+        };
+        locationBox.value = JSON.stringify(location);
+      },
+      function(erro) {
+        locationBox.value = JSON.stringify(location);
+      }
+    );
+
     const order = localStorage.getItem('order');
     
     if (order) {
