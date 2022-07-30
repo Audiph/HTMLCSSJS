@@ -129,6 +129,26 @@
   </footer>
 </body>
 <script>
-  
+  window.addEventListener('DOMContentLoaded', function(e) {
+    const order = localStorage.getItem('order');
+    
+    if (order) {
+      const musicOrder = JSON.parse(order);
+      const music = document.querySelector('.music');
+
+      const title = music.querySelector('.title');
+      const price = music.querySelector('.price');
+      const desc = music.querySelector('.desc');
+
+      title.innerHTML = musicOrder.title;
+      price.innerHTML = musicOrder.price;
+      desc.innerHTML = musicOrder.desc;
+
+      const img = music.querySelector('img');
+      img.setAttribute('src', `images/${musicOrder.id}.png`);
+      img.setAttribute('alt', musicOrder.title)
+    }
+
+  });
 </script>
 </html>
